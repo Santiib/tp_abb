@@ -3,12 +3,12 @@
 #include "abb.h"
 
 
-typedef struct nodo_abb{
+struct nodo_abb{
 	struct nodo_abb_t* h_izq;
 	struct nodo_abb_t* h_der;
 	char* clave;
 	void* dato;
-}nodo_abb_t;
+};
 
 
 struct abb{
@@ -25,7 +25,7 @@ abb_t* abb_crear(abb_comparar_clave_t cmp, abb_destruir_dato_t destruir_dato){
 	abb->raiz = NULL;
 	abb->cant = 0;
 	abb->comparar_clave = cmp;
-	abb->destruit_dato = destruir_dato;
+	abb->destruir_dato = destruir_dato;
 	return abb;
 }
 
@@ -69,7 +69,7 @@ bool abb_guardar(abb_t *arbol, const char *clave, void *dato){
 	}else{ //padre > nodo.
 		actual_padre->h_der = nodo;
 	}
-	arbol->cantidad++;
+	arbol->cant++;
 	return true;
 	
 }
