@@ -5,6 +5,9 @@
 
 //Estructuras:
 
+struct nodo_abb;
+typedef struct nodo_abb nodo_abb_t;
+
 struct abb;
 typedef struct abb_t;
 
