@@ -3,12 +3,12 @@
 #include "abb.h"
 
 
-struct nodo_abb{
-	struct nodo_abb_t* h_izq;
-	struct nodo_abb_t* h_der;
+typedef struct nodo_abb{
+	struct nodo_abb* h_izq;
+	struct nodo_abb* h_der;
 	char* clave;
 	void* dato;
-};
+}nodo_abb_t;
 
 
 struct abb{
