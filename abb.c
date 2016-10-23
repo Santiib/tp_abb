@@ -65,7 +65,7 @@ bool abb_guardar(abb_t *arbol, const char *clave, void *dato){
 	
 	if(actual_padre == NULL){
 		arbol->raiz = nodo;
-	}else if(arbol->comparar_clave(actual->clave, nodo->clave) > 0){ //padre < nodo.
+	}else if(arbol->comparar_clave(actual_padre->clave, nodo->clave) > 0){ //padre < nodo.
 		actual_padre->h_izq = nodo;
 	}else{ //padre > nodo.
 		actual_padre->h_der = nodo;
