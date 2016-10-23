@@ -54,6 +54,7 @@ bool abb_guardar(abb_t *arbol, const char *clave, void *dato){
 		actual_padre = actual;
 		if(comparacion == 0){ //actual == nodo.
 			actual->dato = nodo->dato;
+			free(nodo);
 			return true;
 		}else if(comparacion > 0){ //actual > nodo.
 			actual = actual->h_izq;
