@@ -76,7 +76,20 @@ bool abb_guardar(abb_t *arbol, const char *clave, void *dato){
 }
 
 
-
+bool abb_pertenece(const abb_t *arbol, const char *clave){
+	nodo_abb_t* actual = arbol->raiz;
+	while(actual != NULL){
+		int comparacion = arbol->comparar_clave(actual->clave, clave);
+		if(comparacion == 0){
+			return true;
+		}else if(comparacion > 0){ //actual > clave.
+			actual = actual->h_izq;
+		}else{ //actual < clave.
+			actual = actual->h_der;
+		}
+	}
+	return false;
+}
 
 
 
