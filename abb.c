@@ -44,6 +44,7 @@ nodo_abb_t* crear_nodo(const char *clave, void *dato){
 
 
 bool abb_guardar(abb_t *arbol, const char *clave, void *dato){
+	if(clave == NULL){return false;}
 	nodo_abb_t* nodo = crear_nodo(clave, dato);
 	if(nodo == NULL){return NULL;}
 	nodo_abb_t* actual = arbol->raiz;
