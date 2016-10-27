@@ -69,27 +69,6 @@ void pruebas_abb_alumno(){
 	print_test("iter esta al final", abb_iter_in_al_final(iter));
 	print_test("iter avanzar es false", !abb_iter_in_avanzar(iter));
 	
-	//POSIBLES PRUEBAS DE VOLUMEN ITER
-	/*
-	bool error = false;
-	for(char i = 'a'; i<'z'; i++){
-		if(!abb_guardar(abb, &i, &n1)){
-			error = true;
-			break;
-		}
-	}
-	print_test("Guardo 24 elementos",!error);
-	
-	abb_iter_t *iter = abb_iter_in_crear(abb);
-	print_test("iter fue creado",iter);
-	print_test("iter no esta al final", !abb_iter_in_al_final(iter));
-	for(size_t i = abb_cantidad(abb)+1; i>0; i--){
-		if(!abb_iter_in_avanzar(iter)){
-			break;
-		}
-	}
-	print_test("avanzo hasta el final",abb_iter_in_al_final(iter));
-	*/
 	
 	abb_destruir(abb);
 	print_test("arbol fue destruido",true);
