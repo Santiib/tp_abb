@@ -306,12 +306,19 @@ void abb_destruir(abb_t *arbol){
  *                    PRIMITIVAS DEL ITERADOR EXTERNO
  * *****************************************************************/
 
+//Apila todos los hijos izquierdos de un nodo dado.
+void apilar_hijos_izquierdos(pila_t *pila, nodo_abb_t *nodo){
+	if(nodo->h_izq){
+		pila_apilar(pila, nodo->h_izq);
+		apilar_hijos_izquierdos(pila, nodo->h_izq);
+	}
+}
+
 //Posiciona al iterador en el primer nodo inorder del arbol.
 void abb_iter_in_al_principio(abb_iter_t *iter){
-	nodo_abb_t* nodo_actual = iter->arbol->raiz;
-	while(nodo_actual){
-		pila_apilar(iter->pila_nodos, nodo_actual);
-		nodo_actual = nodo_actual->h_izq;
+	if(iter->arbol->raiz){
+		pila_apilar(iter->pila_nodos, iter->arbol->raiz);
+		apilar_hijos_izquierdos(iter->pila_nodos, iter->arbol->raiz);
 	}
 }
 
@@ -336,11 +343,7 @@ bool abb_iter_in_avanzar(abb_iter_t *iter){
 	nodo_abb_t* nodo = pila_desapilar(iter->pila_nodos);
 	if(nodo->h_der){
 		pila_apilar(iter->pila_nodos, nodo->h_der);
-	}
-	nodo = nodo->h_izq;
-	while(nodo){ // imagino que el error es por esto, por apilar demás
-		pila_apilar(iter->pila_nodos, nodo);
-		nodo = nodo->h_izq;
+		apilar_hijos_izquierdos(iter->pila_nodos, nodo->h_der);
 	}
 	return true;
 }
