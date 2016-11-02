@@ -67,7 +67,6 @@ void pruebas_basicas(){
 	print_test("iter avanzar es true", abb_iter_in_avanzar(iter));
 	print_test("iter avanzar es true", abb_iter_in_avanzar(iter));
 	print_test("iter avanzar es true", abb_iter_in_avanzar(iter));
-	print_test("iter avanzar es true", abb_iter_in_avanzar(iter));
 	print_test("iter esta al final", abb_iter_in_al_final(iter));
 	print_test("iter avanzar es false", !abb_iter_in_avanzar(iter));
 	
@@ -334,11 +333,11 @@ void prueba_iterador_internoII(size_t largo, bool debug){
 }
 
 void pruebas_abb_alumno(){
-	//pruebas_basicas();
-	//prueba_abb_borrar();
+	pruebas_basicas();
+	prueba_abb_borrar();
 	prueba_volumen(1000, true); // tam debe ser > 50
 	prueba_abb_iterar_volumen(1000);
-	//prueba_iterador_internoI();
-	//prueba_iterador_internoII(50, true);
+	prueba_iterador_internoI();
+	prueba_iterador_internoII(50, true);
 }
 
