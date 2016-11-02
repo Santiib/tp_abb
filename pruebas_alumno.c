@@ -115,7 +115,7 @@ void prueba_abb_borrar(){
 
 void prueba_volumen(size_t largo, bool debug){
 	puts("PRUEBAS VOLUMEN");
-	abb_t* arbol = abb_crear(comparar, free);
+	abb_t* arbol = abb_crear(comparar, NULL);
 
 	const size_t largo_clave = 2;
 
